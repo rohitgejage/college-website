@@ -1,0 +1,108 @@
+// import './Navbar.css';
+// import React, { useEffect, useState } from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Link } from 'react-router-dom'; // ✅ Import Link
+
+// function Navbar(props) {
+//   const [scrollPosition, setScrollPosition] = useState(0);
+//   const [isMobileNavActive, setIsMobileNavActive] = useState(false);
+
+//   useEffect(() => {
+//     const navbarlinks = document.querySelectorAll('#navmenu .scrollto');
+
+//     const navbarlinksActive = () => {
+//       let position = window.scrollY + 200;
+//       navbarlinks.forEach(navbarlink => {
+//         if (!navbarlink.hash) return;
+//         let section = document.querySelector(navbarlink.hash);
+//         if (!section) return;
+
+//         if (
+//           position >= section.offsetTop &&
+//           position <= section.offsetTop + section.offsetHeight
+//         ) {
+//           navbarlink.classList.add('active');
+//         } else {
+//           navbarlink.classList.remove('active');
+//         }
+//       });
+//     };
+
+//     const handleScroll = () => {
+//       setScrollPosition(window.scrollY);
+//       navbarlinksActive();
+//     };
+
+//     window.addEventListener('scroll', handleScroll);
+//     window.addEventListener('load', navbarlinksActive);
+
+//     return () => {
+//       window.removeEventListener('scroll', handleScroll);
+//       window.removeEventListener('load', navbarlinksActive);
+//     };
+//   }, []);
+
+//   const mobileNavToggle = () => {
+//     const body = document.querySelector('body');
+//     body.classList.toggle('mobile-nav-active');
+//     setIsMobileNavActive(!isMobileNavActive);
+//   };
+
+//   return (
+//     <header
+//       id="header"
+//       className={`header d-flex align-items-center fixed-top ${props.mode === 'light' && scrollPosition > 100 ? 'scrolled-dark' : 'scrolled'
+//         }`}
+//     >
+//       <div className="container-fluid container-xl position-relative d-flex align-items-center">
+//         <a href="#hero" className="logo d-flex align-items-center me-auto">
+//           <h1 className={`sitename text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
+//             {props.projectTitle}
+//           </h1>
+//         </a>
+
+//         <nav id="navmenu" className="navmenu">
+//           <ul>
+//             <li>
+//               <a href="#hero" className={`scrollto text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Home</a>
+//             </li>
+//             <li>
+//               <a href="#about" className={`scrollto text-${props.mode === 'dark' ? 'light' : 'dark'}`}>About</a>
+//             </li>
+//             <li>
+//               <a href="#contact" className={`scrollto text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Contact</a>
+//             </li>
+//             <li>
+//               <Link to="/login" className={`text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Login</Link>
+//             </li>
+//             <li>
+//               <Link to="/register" className={`text-${props.mode === 'dark' ? 'light' : 'dark'}`}>Register</Link>
+//             </li>
+//             <li>
+//               <div id='nightMode' className="d-flex align-items-center">
+//                 <input
+//                   onClick={props.toggleMode}
+//                   type="checkbox"
+//                   className="checkbox"
+//                   id="checkbox"
+//                 />
+//                 <label htmlFor="checkbox" className="checkbox-label">
+//                   <i className="bi bi-moon-stars-fill"></i>
+//                   <i className="bi bi-brightness-high-fill"></i>
+//                   <span className="ball"></span>
+//                 </label>
+//               </div>
+//             </li>
+//           </ul>
+//           <i
+//             className={`mobile-nav-toggle d-xl-none bi ${isMobileNavActive ? 'bi-x' : 'bi-list'
+//               } text-${props.mode === 'dark' ? 'light' : 'dark'}`}
+//             onClick={mobileNavToggle}
+//           ></i>
+//         </nav>
+//       </div>
+//     </header>
+//   );
+// }
+
+// export default Navbar;
